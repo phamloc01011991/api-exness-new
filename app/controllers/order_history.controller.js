@@ -35,7 +35,7 @@ exports.order = async (req, res) => {
       dataCoin = await Coin.findOne({ where: { symbol: product_name } });
     }
 
-    const entry_price = dataCoin.dataValues.data.value;
+    const entry_price = dataCoin.dataValues.data.value || 62035.20;
 
     let profit_percentage = 100;
     switch (order_duration) {
