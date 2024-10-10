@@ -76,7 +76,7 @@ exports.order = async (req, res) => {
       order_duration,
       entry_price,
     });
-    const order_id = newOrder.dataValues.id;
+    const order_id = newOrder.dataValues.id || 1;
     const time = parseInt(order_duration);
 
     processOrder(order_id, userId, time);
