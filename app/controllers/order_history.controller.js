@@ -37,25 +37,25 @@ exports.order = async (req, res) => {
 
     const entry_price = dataCoin.dataValues.data.value;
 
-    let profit_percentage = 50;
+    let profit_percentage = 100;
     switch (order_duration) {
       case "60s":
-        profit_percentage = 50;
+        profit_percentage = 100;
         break;
       case "90s":
-        profit_percentage = 60;
+        profit_percentage = 100;
         break;
       case "180s":
-        profit_percentage = 70;
+        profit_percentage = 100;
         break;
       case "300s":
-        profit_percentage = 80;
+        profit_percentage = 100;
         break;
       case "500s":
-        profit_percentage = 90;
+        profit_percentage = 100;
         break;
       default:
-        profit_percentage = 50;
+        profit_percentage = 100;
         break;
     }
 
