@@ -35,7 +35,7 @@ exports.order = async (req, res) => {
       dataCoin = await Coin.findOne({ where: { symbol: product_name } });
     }
 
-    const entry_price = dataCoin.dataValues.data.value || 62035.20;
+    const entry_price = dataCoin.dataValues.data.value ?dataCoin.dataValues.data.value :  62035.20;
 
     let profit_percentage = 100;
     switch (order_duration) {
@@ -157,15 +157,15 @@ function processOrder(order_id, userId, time) {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) +
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price ? dataNow.dataValues.entry_price : 62035.20) +
+              parseFloat(dataNow.dataValues.entry_price ? dataNow.dataValues.entry_price : 62035.20) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.dataValues.order_type === "short") {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) -
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) -
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) * randomPercentage
             ).toFixed(8);
           }
         } else if (resultFinal === "lose") {
@@ -174,15 +174,15 @@ function processOrder(order_id, userId, time) {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) -
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) -
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.dataValues.order_type === "short") {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) +
-              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) +
+              parseFloat(dataNow.dataValues.entry_price  ? dataNow.dataValues.entry_price : 62035.20) * randomPercentage
             ).toFixed(8);
           }
         }
