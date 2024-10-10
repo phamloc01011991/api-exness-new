@@ -157,15 +157,15 @@ function processOrder(order_id, userId, time) {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price) +
-              parseFloat(dataNow.dataValues.entry_price) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) +
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.dataValues.order_type === "short") {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price) -
-              parseFloat(dataNow.dataValues.entry_price) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) -
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
             ).toFixed(8);
           }
         } else if (resultFinal === "lose") {
@@ -174,15 +174,15 @@ function processOrder(order_id, userId, time) {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price) -
-              parseFloat(dataNow.dataValues.entry_price) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) -
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.dataValues.order_type === "short") {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
             const randomPercentage = (Math.random() * 4 + 1) / 100;
             exitPrice = (
-              parseFloat(dataNow.dataValues.entry_price) +
-              parseFloat(dataNow.dataValues.entry_price) * randomPercentage
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) +
+              parseFloat(dataNow.dataValues.entry_price || 62035.20) * randomPercentage
             ).toFixed(8);
           }
         }
